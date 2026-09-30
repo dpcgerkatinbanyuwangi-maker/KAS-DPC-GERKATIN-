@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>KAS DIGITAL DPC GERKATIN BANYUWANGI</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f4f7fb;
+      color: #1f2937;
+    }
+
+    /* ================= HEADER ================= */
+
+    header {
+      background: linear-gradient(135deg, #075985, #0284c7);
+      color: white;
+      padding: 22px 15px;
+      text-align: center;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+    }
+
+    .logo {
+      width: 75px;
+      height: 75px;
+      object-fit: contain;
+      background: white;
+      border-radius: 50%;
+      padding: 5px;
+      margin-bottom: 10px;
+    }
+
+    header h1 {
+      font-size: 24px;
+      font-weight: 700;
+    }
+
+    header p {
+      margin-top: 6px;
+      font-size: 14px;
+      opacity: 0.95;
+    }
+
+    /* ================= CONTAINER ================= */
+
+    .container {
+      width: 95%;
+      max-width: 1200px;
+      margin: 25px auto;
+    }
+
+    /* ================= DASHBOARD ================= */
+
+    .dashboard {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      margin-bottom: 25px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+    }
+
+    .card-title {
+      font-size: 14px;
+      color: #64748b;
+      margin-bottom: 10px;
+    }
+
+    .card-value {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .saldo {
+      color: #0369a1;
+    }
+
+    .pemasukan {
+      color: #15803d;
+    }
+
+    .pengeluaran {
+      color: #dc2626;
+    }
+
+    /* ================= FORM ================= */
+
+    .section-title {
+      font-size: 20px;
+      margin-bottom: 15px;
+      color: #075985;
+    }
+
+    .form-card {
+      background: white;
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+      margin-bottom: 25px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .form-group.full {
+      grid-column: 1 / -1;
+    }
+
+    label {
+      font-size: 14px;
+      font-weight: bold;
+      margin-bottom: 7px;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      font-size: 14px;
+      outline: none;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: #0284c7;
+      box-shadow: 0 0 0 2px rgba(2,132,199,0.12);
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    .btn {
+      border: none;
+      padding: 12px 18px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .btn-primary {
+      background: #0284c7;
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: #0369a1;
+    }
+
+    .btn-reset {
+      background: #e2e8f0;
+      color: #334155;
+      margin-left: 8px;
+    }
+
+    /* ================= FILTER ================= */
+
+    .filter-box {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 15px;
+    }
+
+    /* ================= TABLE ================= */
+
+    .table-card {
+      background: white;
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 800px;
+    }
+
+    th {
+      background: #075985;
+      color: white;
+      padding: 12px 10px;
+      font-size: 13px;
+      text-align: left;
+    }
+
+    td {
+      padding: 11px 10px;
+      border-bottom: 1px solid #e2e8f0;
+      font-size: 13px;
+    }
+
+    tr:hover {
+      background: #f8fafc;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 5px 9px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: bold;
+    }
+
+    .badge-masuk {
+      background: #dcfce7;
+      color: #166534;
+    }
+
+    .badge-keluar {
+      background: #fee2e2;
+      color: #991b1b;
+    }
+
+    .btn-delete {
+      background: #dc2626;
+      color: white;
+      padding: 7px 10px;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      font-size: 11px;
+    }
+
+    /* ================= FOOTER ================= */
+
+    footer {
+      text-align: center;
+      padding: 25px 15px;
+      margin-top: 30px;
+      background: #0f172a;
+      color: white;
+      font-size: 13px;
+    }
+
+    /* ================= RESPONSIVE ================= */
+
+    @media (max-width: 800px) {
+
+      header h1 {
+        font-size: 19px;
+      }
+
+      .dashboard {
+        grid-template-columns: 1fr;
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .form-group.full {
+        grid-column: auto;
+      }
+
+      .filter-box {
+        grid-template-columns: 1fr;
+      }
+
+      .card-value {
+        font-size: 21px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header>
+
+  <!-- GANTI URL LOGO DI BAWAH -->
+  <img
+    class="logo"
+    src="https://via.placeholder.com/150"
+    alt="Logo DPC GERKATIN">
+
+  <h1>KAS DIGITAL</h1>
+
+  <p>
+    DPC GERKATIN KABUPATEN BANYUWANGI
+  </p>
+
+</header>
+
+
+<!-- =====================================================
+     CONTENT
+===================================================== -->
+
+<div class="container">
+
+  <!-- ================= DASHBOARD ================= -->
+
+  <div class="dashboard">
+
+    <div class="card">
+
+      <div class="card-title">
+        💰 SALDO KAS
+      </div>
+
+      <div
+        class="card-value saldo"
+        id="saldo">
+        Rp0
+      </div>
+
+    </div>
+
+
+    <div class="card">
+
+      <div class="card-title">
+        🟢 TOTAL PEMASUKAN
+      </div>
+
+      <div
+        class="card-value pemasukan"
+        id="totalPemasukan">
+        Rp0
+      </div>
+
+    </div>
+
+
+    <div class="card">
+
+      <div class="card-title">
+        🔴 TOTAL PENGELUARAN
+      </div>
+
+      <div
+        class="card-value pengeluaran"
+        id="totalPengeluaran">
+        Rp0
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =================================================
+       FORM TRANSAKSI
+  ================================================= -->
+
+  <div class="form-card">
+
+    <h2 class="section-title">
+      📝 Input Transaksi Kas
+    </h2>
+
+    <form id="kasForm">
+
+      <div class="form-grid">
+
+        <!-- TANGGAL -->
+
+        <div class="form-group">
+
+          <label for="tanggal">
+            Tanggal
+          </label>
+
+          <input
+            type="date"
+            id="tanggal"
+            required>
+
+        </div>
+
+
+        <!-- JENIS -->
+
+        <div class="form-group">
+
+          <label for="jenis">
+            Jenis Transaksi
+          </label>
+
+          <select
+            id="jenis"
+            required>
+
+            <option value="">
+              -- Pilih --
+            </option>
+
+            <option value="Pemasukan">
+              🟢 Pemasukan
+            </option>
+
+            <option value="Pengeluaran">
+              🔴 Pengeluaran
+            </option>
+
+          </select>
+
+        </div>
+
+
+        <!-- KATEGORI -->
+
+        <div class="form-group">
+
+          <label for="kategori">
+            Kategori
+          </label>
+
+          <select
+            id="kategori"
+            required>
+
+            <option value="">
+              -- Pilih Kategori --
+            </option>
+
+            <option>
+              Iuran Anggota
+            </option>
+
+            <option>
+              Donasi
+            </option>
+
+            <option>
+              Bantuan Kegiatan
+            </option>
+
+            <option>
+              Kegiatan PTI
+            </option>
+
+            <option>
+              ATK
+            </option>
+
+            <option>
+              Konsumsi
+            </option>
+
+            <option>
+              Transportasi
+            </option>
+
+            <option>
+              Administrasi
+            </option>
+
+            <option>
+              Lain-lain
+            </option>
+
+          </select>
+
+        </div>
+
+
+        <!-- NOMINAL -->
+
+        <div class="form-group">
+
+          <label for="nominal">
+            Nominal (Rp)
+          </label>
+
+          <input
+            type="number"
+            id="nominal"
+            min="0"
+            placeholder="Contoh: 100000"
+            required>
+
+        </div>
+
+
+        <!-- PETUGAS -->
+
+        <div class="form-group">
+
+          <label for="petugas">
+            Nama Petugas
+          </label>
+
+          <input
+            type="text"
+            id="petugas"
+            placeholder="Nama bendahara/petugas"
+            required>
+
+        </div>
+
+
+        <!-- BUKTI -->
+
+        <div class="form-group">
+
+          <label for="bukti">
+            Link Bukti Transaksi
+          </label>
+
+          <input
+            type="url"
+            id="bukti"
+            placeholder="https://drive.google.com/...">
+
+        </div>
+
+
+        <!-- URAIAN -->
+
+        <div class="form-group full">
+
+          <label for="uraian">
+            Uraian Transaksi
+          </label>
+
+          <textarea
+            id="uraian"
+            placeholder="Contoh: Pembelian ATK kegiatan organisasi"
+            required></textarea>
+
+        </div>
+
+      </div>
+
+
+      <br>
+
+      <button
+        type="submit"
+        class="btn btn-primary">
+
+        💾 Simpan Transaksi
+
+      </button>
+
+      <button
+        type="reset"
+        class="btn btn-reset">
+
+        ↻ Reset
+
+      </button>
+
+    </form>
+
+  </div>
+
+
+  <!-- =================================================
+       RIWAYAT TRANSAKSI
+  ================================================= -->
+
+  <div class="table-card">
+
+    <h2 class="section-title">
+      📋 Riwayat Transaksi Kas
+    </h2>
+
+
+    <!-- FILTER -->
+
+    <div class="filter-box">
+
+      <input
+        type="text"
+        id="search"
+        placeholder="🔎 Cari transaksi...">
+
+      <input
+        type="date"
+        id="filterTanggal">
+
+      <select id="filterJenis">
+
+        <option value="">
+          Semua Transaksi
+        </option>
+
+        <option value="Pemasukan">
+          Pemasukan
+        </option>
+
+        <option value="Pengeluaran">
+          Pengeluaran
+        </option>
+
+      </select>
+
+    </div>
+
+
+    <!-- TABLE -->
+
+    <table>
+
+      <thead>
+
+        <tr>
+
+          <th>No</th>
+
+          <th>Tanggal</th>
+
+          <th>Jenis</th>
+
+          <th>Kategori</th>
+
+          <th>Uraian</th>
+
+          <th>Petugas</th>
+
+          <th>Nominal</th>
+
+          <th>Bukti</th>
+
+          <th>Aksi</th>
+
+        </tr>
+
+      </thead>
+
+      <tbody id="tableBody">
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+</div>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+  <strong>
+    KAS DIGITAL DPC GERKATIN KABUPATEN BANYUWANGI
+  </strong>
+
+  <br>
+
+  © 2026 DPC GERKATIN Kabupaten Banyuwangi
+
+</footer>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+  /* ================================================
+     DATA
+  ================================================ */
+
+  let transaksi =
+    JSON.parse(
+      localStorage.getItem("kasGerkatin")
+    ) || [];
+
+
+  /* ================================================
+     FORMAT RUPIAH
+  ================================================ */
+
+  function rupiah(angka) {
+
+    return new Intl.NumberFormat(
+      "id-ID",
+      {
+        style: "currency",
+        currency: "IDR",
+        minimumFractionDigits: 0
+      }
+    ).format(angka);
+
+  }
+
+
+  /* ================================================
+     DASHBOARD
+  ================================================ */
+
+  function updateDashboard() {
+
+    let pemasukan = 0;
+
+    let pengeluaran = 0;
+
+
+    transaksi.forEach(function(item) {
+
+      if (item.jenis === "Pemasukan") {
+
+        pemasukan += Number(item.nominal);
+
+      }
+
+      if (item.jenis === "Pengeluaran") {
+
+        pengeluaran += Number(item.nominal);
+
+      }
+
+    });
+
+
+    let saldo =
+      pemasukan - pengeluaran;
+
+
+    document.getElementById("saldo")
+      .textContent = rupiah(saldo);
+
+
+    document.getElementById("totalPemasukan")
+      .textContent = rupiah(pemasukan);
+
+
+    document.getElementById("totalPengeluaran")
+      .textContent = rupiah(pengeluaran);
+
+  }
+
+
+  /* ================================================
+     TAMPILKAN DATA
+  ================================================ */
+
+  function tampilkanData() {
+
+    const tbody =
+      document.getElementById("tableBody");
+
+
+    tbody.innerHTML = "";
+
+
+    const search =
+      document.getElementById("search")
+        .value
+        .toLowerCase();
+
+
+    const tanggal =
+      document.getElementById("filterTanggal")
+        .value;
+
+
+    const jenis =
+      document.getElementById("filterJenis")
+        .value;
+
+
+    const hasil =
+      transaksi.filter(function(item) {
+
+        const cocokSearch =
+
+          item.uraian.toLowerCase()
+            .includes(search)
+
+          ||
+
+          item.kategori.toLowerCase()
+            .includes(search)
+
+          ||
+
+          item.petugas.toLowerCase()
+            .includes(search);
+
+
+        const cocokTanggal =
+          !tanggal ||
+          item.tanggal === tanggal;
+
+
+        const cocokJenis =
+          !jenis ||
+          item.jenis === jenis;
+
+
+        return (
+          cocokSearch &&
+          cocokTanggal &&
+          cocokJenis
+        );
+
+      });
+
+
+    hasil.forEach(function(item, index) {
+
+      const tr =
+        document.createElement("tr");
+
+
+      const nomor =
+        index + 1;
+
+
+      const badge =
+        item.jenis === "Pemasukan"
+
+        ?
+
+        `<span class="badge badge-masuk">
+          Pemasukan
+        </span>`
+
+        :
+
+        `<span class="badge badge-keluar">
+          Pengeluaran
+        </span>`;
+
+
+      const bukti =
+        item.bukti
+
+        ?
+
+        `<a
+          href="${item.bukti}"
+          target="_blank">
+          Lihat
+        </a>`
+
+        :
+
+        "-";
+
+
+      tr.innerHTML = `
+
+        <td>${nomor}</td>
+
+        <td>${formatTanggal(item.tanggal)}</td>
+
+        <td>${badge}</td>
+
+        <td>${item.kategori}</td>
+
+        <td>${item.uraian}</td>
+
+        <td>${item.petugas}</td>
+
+        <td>
+          <strong>
+            ${rupiah(item.nominal)}
+          </strong>
+        </td>
+
+        <td>
+          ${bukti}
+        </td>
+
+        <td>
+
+          <button
+            class="btn-delete"
+            onclick="hapusTransaksi('${item.id}')">
+
+            Hapus
+
+          </button>
+
+        </td>
+
+      `;
+
+
+      tbody.appendChild(tr);
+
+    });
+
+  }
+
+
+  /* ================================================
+     FORMAT TANGGAL
+  ================================================ */
+
+  function formatTanggal(tanggal) {
+
+    if (!tanggal) return "-";
+
+
+    const bagian =
+      tanggal.split("-");
+
+
+    return (
+      bagian[2] +
+      "/" +
+      bagian[1] +
+      "/" +
+      bagian[0]
+    );
+
+  }
+
+
+  /* ================================================
+     SIMPAN TRANSAKSI
+  ================================================ */
+
+  document
+    .getElementById("kasForm")
+    .addEventListener(
+      "submit",
+      function(e) {
+
+        e.preventDefault();
+
+
+        const data = {
+
+          id:
+            Date.now().toString(),
+
+          tanggal:
+            document.getElementById(
+              "tanggal"
+            ).value,
+
+          jenis:
+            document.getElementById(
+              "jenis"
+            ).value,
+
+          kategori:
+            document.getElementById(
+              "kategori"
+            ).value,
+
+          nominal:
+            Number(
+              document.getElementById(
+                "nominal"
+              ).value
+            ),
+
+          petugas:
+            document.getElementById(
+              "petugas"
+            ).value,
+
+          bukti:
+            document.getElementById(
+              "bukti"
+            ).value,
+
+          uraian:
+            document.getElementById(
+              "uraian"
+            ).value
+
+        };
+
+
+        transaksi.push(data);
+
+
+        localStorage.setItem(
+          "kasGerkatin",
+          JSON.stringify(transaksi)
+        );
+
+
+        alert(
+          "Transaksi berhasil disimpan."
+        );
+
+
+        document
+          .getElementById("kasForm")
+          .reset();
+
+
+        document
+          .getElementById("tanggal")
+          .valueAsDate =
+            new Date();
+
+
+        updateDashboard();
+
+        tampilkanData();
+
+      });
+
+
+  /* ================================================
+     HAPUS TRANSAKSI
+  ================================================ */
+
+  function hapusTransaksi(id) {
+
+    const yakin =
+      confirm(
+        "Apakah transaksi ini ingin dihapus?"
+      );
+
+
+    if (!yakin) return;
+
+
+    transaksi =
+      transaksi.filter(
+        function(item) {
+
+          return item.id !== id;
+
+        }
+      );
+
+
+    localStorage.setItem(
+      "kasGerkatin",
+      JSON.stringify(transaksi)
+    );
+
+
+    updateDashboard();
+
+    tampilkanData();
+
+  }
+
+
+  /* ================================================
+     FILTER
+  ================================================ */
+
+  document
+    .getElementById("search")
+    .addEventListener(
+      "input",
+      tampilkanData
+    );
+
+
+  document
+    .getElementById("filterTanggal")
+    .addEventListener(
+      "change",
+      tampilkanData
+    );
+
+
+  document
+    .getElementById("filterJenis")
+    .addEventListener(
+      "change",
+      tampilkanData
+    );
+
+
+  /* ================================================
+     TANGGAL DEFAULT
+  ================================================ */
+
+  document
+    .getElementById("tanggal")
+    .valueAsDate =
+      new Date();
+
+
+  /* ================================================
+     START
+  ================================================ */
+
+  updateDashboard();
+
+  tampilkanData();
+
+</script>
+
+</body>
+</html>
